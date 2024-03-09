@@ -2,42 +2,56 @@ package atividadebanco;
 
 public class ContaBancariaPoupanca extends ContaBancaria {
 
-	private int dia = 5;
-	
-	public ContaBancariaPoupanca() {
-		super();
-	}
+    private int dia = 5;
 
-	public ContaBancariaPoupanca(int numeroConta, double saldo) {
-		super(numeroConta, saldo);
-	}
+    public ContaBancariaPoupanca() {
+        super();
+    }
 
-	
-	@Override
-	public boolean Saque(double valor) {
-		int zero = 0;
-		if(dia <= zero) {
-			return false;
-		}else {
-			super.Saque(valor);
-			dia--;
-			return true;
-		}
-	}
-	
-	
-	
-	
-	
-	public int getDia() {
-		return dia;
-	}
+    public ContaBancariaPoupanca(int numeroConta, double saldo) {
+        super(numeroConta, saldo);
+    }
 
-	public void setDia(int dia) {
-		this.dia = dia;
-	}
-	
-	
-	
+
+    @Override
+    public boolean Saque(double valor) {
+
+        if(dia <= 0) {
+            return false;
+        }else {
+            if(saldo >= valor) {
+            this.saldo -=  valor;
+            dia --;
+            return true;
+        }return false;
+    }
+        }
+
+    @Override
+    public boolean Tranferencia(ContaBancaria destino, double valor ) {
+        if(Saque(valor)) {
+            if(destino.Deposito(valor)) {
+                return true;
+            }else {
+                Deposito(valor);
+                return false;
+            }
+        }return false;
+    }
+
+
+
+
+
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+
+
 
 }
