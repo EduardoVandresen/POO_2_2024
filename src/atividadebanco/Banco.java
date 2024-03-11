@@ -11,7 +11,7 @@ public class Banco {
 	
 	
 	
-	public String listaContas() {
+	public String listaContasBancaria() {
 		String retorno= "";
 		for(ContaBancaria contas: contas) {
 			retorno += contas +"\n";

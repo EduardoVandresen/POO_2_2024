@@ -37,7 +37,7 @@ class BancoTest {
 	}
         @Test
         void testListaContabancaria() {
-            assertEquals( "ContaBancaria: numero Conta=1, saldo=R$900.0]\n" + "ContaBancaria: numero Conta=2, saldo=R$900.0]\n",b1.listaContas());
+            assertEquals( "ContaBancaria: numero Conta=1, saldo=R$900.0]\n" + "ContaBancaria: numero Conta=2, saldo=R$900.0]\n",b1.listaContasBancaria());
         }
         @Test
         void testListaContabancariaCorrente() {
