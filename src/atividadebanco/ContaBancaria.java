@@ -16,7 +16,7 @@ public class ContaBancaria {
 
 
     public ContaBancaria() {
-        this.numeroConta = 0;
+    	this.numeroConta = 0;
         this.saldo= 0.0;
     }
     public boolean Saque(double valor) {
@@ -30,7 +30,9 @@ public class ContaBancaria {
         return true;
     }
     public boolean Tranferencia(ContaBancaria destino, double valor ) {
-        if(Saque(valor)) {
+    	
+    	if(Saque(valor)) {
+    		
             if(destino.Deposito(valor)) {
                 return true;
             }else {
@@ -40,7 +42,7 @@ public class ContaBancaria {
         }return false;
     }
 
-
+   
 
     @Override
     public String toString() {

@@ -30,6 +30,10 @@ public class ContaBancariaPoupanca extends ContaBancaria {
     @Override
     public boolean Tranferencia(ContaBancaria destino, double valor ) {
         if(Saque(valor)) {
+        	if(destino.equals(null) ) {
+        		Deposito(valor);
+        		return false;
+        	}
             if(destino.Deposito(valor)) {
                 return true;
             }else {

@@ -15,15 +15,15 @@ import atividadebanco.ContaBancaria;
 class ContaBancariaTest {
     ContaBancaria c1;
     ContaBancaria c2;
-    
+    ContaBancaria c3;
 
     @BeforeEach
     public void inicialização() {
 
          c1 = new ContaBancaria(01 , 900);
          c2 = new ContaBancaria(02 , 1000);
-
-    }
+         
+         }
     @Test
     void testToString() {
         assertEquals( "ContaBancaria: numero Conta=1, saldo=R$900.0]",c1.toString() );
@@ -49,9 +49,16 @@ class ContaBancariaTest {
         assertEquals( "ContaBancaria: numero Conta=1, saldo=R$800.0]",c1.toString() );
         assertEquals( "ContaBancaria: numero Conta=2, saldo=R$1100.0]",c2.toString() );
     }
+    @Test
     void testTranferenciaErrado() {
         c1.Tranferencia(c2 , 10000);
         assertEquals( "ContaBancaria: numero Conta=1, saldo=R$900.0]",c1.toString() );
         assertEquals( "ContaBancaria: numero Conta=2, saldo=R$1000.0]",c2.toString() );
+    }
+    @Test
+    void testTranferenciaNulo() {
+        c1.Tranferencia(null , 100);
+        assertEquals( "ContaBancaria: numero Conta=1, saldo=R$900.0]",c1.toString() );
+     
     }
 }

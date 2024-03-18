@@ -29,6 +29,9 @@ public class ContaBancariaEspecial extends ContaBancaria {
     @Override
     public boolean Tranferencia(ContaBancaria destino, double valor ) {
         if(Saque(valor)) {
+        	if(destino.equals(null) ) {
+        		return false;
+        	}
             if(destino.Deposito(valor)) {
                 return true;
             }else {
