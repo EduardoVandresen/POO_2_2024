@@ -33,14 +33,14 @@ class BancoTestArquivo {
 			int nr = Integer.parseInt(v[1]);
 			double saldo = Double.parseDouble(v[2]);
 			if(v[0].equals("0")) {
-				contas.add(new ContaBancariaCorrente(nr , saldo));
+				banco.adicionarConta(new ContaBancariaCorrente(nr, saldo));
 			}
 			if(v[0].equals("1")) {
-				contas.add(new ContaBancariaPoupanca(nr , saldo));
+				banco.adicionarConta(new ContaBancariaPoupanca(nr, saldo));
 			}
 			if(v[0].equals("2")) {
 				Double limite = Double.parseDouble(v[3]);
-				contas.add(new ContaBancariaEspecial(nr , saldo , limite));
+				banco.adicionarConta(new ContaBancariaEspecial(nr, saldo, limite));
 			}
 		}
 	
