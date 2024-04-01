@@ -13,10 +13,6 @@ import java.util.Random;
 
 import javax.swing.JOptionPane;
 
-import atividadebanco.ContaBancaria;
-import atividadebanco.ContaBancariaCorrente;
-import atividadebanco.ContaBancariaEspecial;
-import atividadebanco.ContaBancariaPoupanca;
 import java.util.Random;
 public class atividade {
 	int contagem=0;
@@ -36,7 +32,6 @@ public class atividade {
 		}while(op!=3);
 	}
 	public static void pergurtas() {
-		JOptionPane.showMessageDialog(null, contaLinha());
 		ArrayList<Pergunta> perguntas  = new ArrayList<Pergunta>();
 		try {
 			FileReader fr = new FileReader("perguntas.txt");
@@ -63,26 +58,16 @@ public class atividade {
 				try {
 					FileWriter fw = new FileWriter("respostas.txt", true);
 					BufferedWriter bw = new BufferedWriter(fw);
-					if(contaLinha() ==0 ) {
-						bw.append(" , \n  ");
+					if(perguntas.get(x).getNr().equalsIgnoreCase(resposta)) {
+							
+						bw.append("Acerto\n");
 						
-						if(perguntas.get(x).getNr().equalsIgnoreCase(resposta)) {
-							bw.append(" Acertou a pergunta " + "1" + ",  \n  ");
-						cont();
-						}else if(perguntas.get(x).getNr()!=resposta){
-							bw.append(" Errou a pergunta " + "1" + ", \n  ");
-						
-					}
-						}else if(perguntas.get(x).getNr().equalsIgnoreCase(resposta)) {
-							z = z-1;
-						bw.append(" Acertou a pergunta " + z + ",  \n  ");
-						cont();
 					}else if(perguntas.get(x).getNr()!=resposta){
-						bw.append(" Errou a pergunta " + z + ", \n  ");
+						bw.append("Erro\n");
 						
 					}n++;
 					bw.close();
-					
+					fw.close();
 				}catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -93,21 +78,27 @@ public class atividade {
 		
 }
 	public static void score() {
-		
+		ArrayList<respostas> resposta  = new ArrayList<respostas>();
+		int o=0;
 		try {
 			FileReader fl = new FileReader("respostas.txt");
 			BufferedReader bl = new BufferedReader(fl);
 			String linha = "";
-			int o=0;
-			String mostra = "Score: " + o +"\n";
+			
+			String mostra;
+			
 			while((linha = bl.readLine())!= null) {
-				String v[] = linha.split(" ,");
-				while((linha = bl.readLine()) != null){
-					mostra += linha +"\n";
-					
+					resposta.add(new respostas(linha));
 				}
+				for(respostas respostas: resposta) {
+				
+					if(respostas.acertou()) {
+						o++;
+					}
+		}
+			mostra = "Score: " + o +"\n";
 			JOptionPane.showMessageDialog(null, mostra);
-			}
+			
 			bl.close();
 			fl.close(); 
 			
@@ -124,7 +115,7 @@ public class atividade {
 		String linha = "";
 		
 		while((linha = br.readLine())!= null) {
-			String v[] = linha.split(",");
+			
 			linhas++;
 			
 		}

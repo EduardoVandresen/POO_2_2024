@@ -1,12 +1,4 @@
- , 
-   Errou a pergunta 1, 
-   Acertou a pergunta 2,  
-   Errou a pergunta 4, 
-   Errou a pergunta 5, 
-   Errou a pergunta 6, 
-   Errou a pergunta 7, 
-   Acertou a pergunta 7,  
-   Acertou a pergunta 8,  
-   Errou a pergunta 10, 
-   Errou a pergunta 11, 
-  
+1,A,acerto
+2,b,acerto
+3,c,erro
+4,d,erro
