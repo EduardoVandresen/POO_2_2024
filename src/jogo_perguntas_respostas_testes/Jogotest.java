@@ -30,6 +30,12 @@ class Jogotest {
 		assertEquals("erro", r.correcao());
 	}
 	@Test
+	void fazCorrecaoFalseTest() {
+		Pergunta pergunta = new Pergunta("ABCD é EFGH,Falso");
+		Resposta r = new Resposta(pergunta, false);
+		assertEquals("acerto", r.correcao());
+	}
+	@Test
 	void calculaPontuacaoTest() {
 		assertEquals(2, jogo.calculaPontuacao(respostasControladas()));
 		}
